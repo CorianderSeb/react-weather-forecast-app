@@ -1,0 +1,10 @@
+.Weather {
+    border:5px solid blue;
+  margin: 20px;
+    padding: 20px;
+    color: white;
+    background-color: rgb(59, 59, 59);
+}
+li {
+    color: black;
+}
