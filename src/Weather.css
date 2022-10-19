@@ -1,7 +1,7 @@
 .Weather {
     border:5px solid blue;
     border-radius: 4px;
-    max-width: 800px;
+  
   margin: 20px;
     padding: 60px;
     color: white;
@@ -26,4 +26,21 @@
     color: white;
     list-style: none;
 
+}
+
+.Weather img {
+  float: left;
+  height:70px;
+}
+
+.Weather .temperature {
+  font-size: 50px;
+  line-height: 70px;
+  font-weight: bold;
+}
+
+.Weather .unit {
+  top: -28px;
+  font-size: 16px;
+  position: relative;
 }
