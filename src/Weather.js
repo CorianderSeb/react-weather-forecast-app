@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "./Weather.css";
 import "bootstrap/dist/css/bootstrap.css";
 
 
-export default function Weather () {
+export default function Weather (props) {  
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  function handleResponse(response) {
+setWeatherData({
+  ready: true,
+  temperature: Math.round(response.data.temperature.current),
+  wind: Math.round(response.data.wind.speed),
+  humidity: response.data.temperature.humidity,
+  condition: response.data.condition.description,
+  icon: response.data.condition.icon_url,
+  city: response.data.city,
+  date: response.data.time
+});
+  }
+    if (weatherData.ready) {
     return (
       <div className="Weather">
         <form>
@@ -25,28 +40,35 @@ export default function Weather () {
             </div>
           </div>
         </form>
-        <h1> Dallas</h1>
+        <h1> {weatherData.city}</h1>
         <ul>
-          <li>Wednesday 01:00</li>
+          <li>{weatherData.date}</li>
           <li>Sunny</li>
         </ul>
         <div className="row">
           <div className="col-6">
             <img
-              src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+              src={weatherData.icon}
               alt="sunny"
             />
-            <span className="temperature">100</span>
+            <span className="temperature">{weatherData.temperature}</span>
             <span className="unit">°F</span>
           </div>
           <div className="col-6">
             <ul>
-              <li>Precipitation: 0%</li>
-              <li>Humidity: 40%</li>
-              <li>Wind: 7mph</li>
+              <li className="text-capitalize">Condition: {weatherData.condition}</li>
+              <li>Humidity: {weatherData.humidity}%</li>
+              <li>Wind: {weatherData.wind} mph</li>
             </ul>
           </div>
         </div>
       </div>
     );
+    } else{
+ const apiKey = "t10a43coc84b90fe66a71226d4056be3";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=imperial`;
+ axios.get(apiUrl).then(handleResponse);
+
+ return "Loading..."
+    }
 }
