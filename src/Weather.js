@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import FormattedDate from "./FormattedDate"
 import "./Weather.css";
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -15,7 +16,7 @@ setWeatherData({
   condition: response.data.condition.description,
   icon: response.data.condition.icon_url,
   city: response.data.city,
-  date: response.data.time
+  date: new Date(response.data.time *1000)
 });
   }
     if (weatherData.ready) {
@@ -42,7 +43,7 @@ setWeatherData({
         </form>
         <h1> {weatherData.city}</h1>
         <ul>
-          <li>{weatherData.date}</li>
+          <li><FormattedDate /></li>
           <li>Sunny</li>
         </ul>
         <div className="row">
