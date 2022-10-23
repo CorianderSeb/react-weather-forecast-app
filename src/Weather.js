@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import FormattedDate from "./FormattedDate"
+
 import "./Weather.css";
+import WeatherInfo from "./WeatherInfo";
 import "bootstrap/dist/css/bootstrap.css";
+
 
 
 export default function Weather (props) {  
@@ -41,29 +43,8 @@ setWeatherData({
             </div>
           </div>
         </form>
-        <h1> {weatherData.city}</h1>
-        <ul>
-          <li><FormattedDate /></li>
-          <li>Sunny</li>
-        </ul>
-        <div className="row">
-          <div className="col-6">
-            <img
-              src={weatherData.icon}
-              alt="sunny"
-            />
-            <span className="temperature">{weatherData.temperature}</span>
-            <span className="unit">°F</span>
-          </div>
-          <div className="col-6">
-            <ul>
-              <li className="text-capitalize">Condition: {weatherData.condition}</li>
-              <li>Humidity: {weatherData.humidity}%</li>
-              <li>Wind: {weatherData.wind} mph</li>
-            </ul>
-          </div>
+        <WeatherInfo data={weatherData}/>
         </div>
-      </div>
     );
     } else{
  const apiKey = "t10a43coc84b90fe66a71226d4056be3";
