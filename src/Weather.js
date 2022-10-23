@@ -7,7 +7,8 @@ import "bootstrap/dist/css/bootstrap.css";
 
 
 
-export default function Weather (props) {  
+export default function Weather (props) { 
+  const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({ ready: false });
   function handleResponse(response) {
 setWeatherData({
@@ -21,10 +22,25 @@ setWeatherData({
   date: new Date(response.data.time *1000)
 });
   }
+  function search(){
+ const apiKey = "t10a43coc84b90fe66a71226d4056be3";
+ let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
+ axios.get(apiUrl).then(handleResponse);
+  }
+
+  function handleSubmit (event) {
+    event.preventDefault();
+    search();
+  }
+  function handleCityChange (event) {
+setCity(event.target.value);
+  }
+
+
     if (weatherData.ready) {
     return (
       <div className="Weather">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-9">
               <input
@@ -32,6 +48,7 @@ setWeatherData({
                 placeholder="Enter a City"
                 className="form-control"
                 autoFocus="on"
+                onChange= {handleCityChange}
               />
             </div>
             <div className="col-3">
@@ -47,10 +64,7 @@ setWeatherData({
         </div>
     );
     } else{
- const apiKey = "t10a43coc84b90fe66a71226d4056be3";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=imperial`;
- axios.get(apiUrl).then(handleResponse);
-
+search();
  return "Loading..."
     }
 }
