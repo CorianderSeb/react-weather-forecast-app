@@ -1,5 +1,6 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
+import WeatherTemperature from "./WeatherTemperature"
 
 
 export default function WeatherInfo (props) {
@@ -16,9 +17,8 @@ export default function WeatherInfo (props) {
               src={props.data.icon}
               alt="sunny"
             />
-            <span className="temperature">{props.data.temperature}</span>
-            <span className="unit">°F</span>
-          </div>
+            <WeatherTemperature farenheit={props.data.temperature} />
+            </div>
           <div className="col-6">
             <ul>
               <li className="text-capitalize">Condition: {props.data.condition}</li>
