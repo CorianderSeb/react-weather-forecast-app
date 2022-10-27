@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import WeatherForecast from "./WeatherForecast";
 import "./Weather.css";
 import WeatherInfo from "./WeatherInfo";
 import "bootstrap/dist/css/bootstrap.css";
@@ -61,6 +61,7 @@ setCity(event.target.value);
           </div>
         </form>
         <WeatherInfo data={weatherData}/>
+        <WeatherForecast data={weatherData}/>
         </div>
     );
     } else{

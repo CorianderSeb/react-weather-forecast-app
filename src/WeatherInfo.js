@@ -15,7 +15,8 @@ export default function WeatherInfo (props) {
           <div className="col-6">
             <img
               src={props.data.icon}
-              alt="sunny"
+              alt="{props.data.condition}"
+              sizes="52"
             />
             <WeatherTemperature farenheit={props.data.temperature} />
             </div>

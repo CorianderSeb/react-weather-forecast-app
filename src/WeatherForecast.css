@@ -1,0 +1,15 @@
+.WeatherForecast {
+    text-align: center;
+    border: 1px solid gainsboro;
+}
+.WeatherForecast img {
+    display: block;
+    margin: 0 auto;
+}
+.WeatherForecast .WeatherForecast-temp {
+    margin-top: 22 px;
+}
+
+.WeatherForecast .WeatherForecast-high {
+    font-weight: bold;
+}
