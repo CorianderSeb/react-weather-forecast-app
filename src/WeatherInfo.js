@@ -16,7 +16,7 @@ export default function WeatherInfo (props) {
             <img
               src={props.data.icon}
               alt="{props.data.condition}"
-              sizes="52"
+              size={50}
             />
             <WeatherTemperature farenheit={props.data.temperature} />
             </div>
