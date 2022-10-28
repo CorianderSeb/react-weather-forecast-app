@@ -4,30 +4,27 @@ import WeatherTemperature from "./WeatherTemperature"
 
 
 export default function WeatherInfo (props) {
-    return(
-        <div className="WeatherInfo">
-            <h1> {props.data.city}</h1>
+  return (
+      <div className="WeatherInfo">
+        <h1> {props.data.city}</h1>
         <ul>
-          <li><FormattedDate date={props.data.date}/></li>
-          <li>Sunny</li>
+          <li>
+            <FormattedDate date={props.data.date} />
+          </li>
+          <li className="text-capitalize">{props.data.condition}</li>
         </ul>
         <div className="row">
           <div className="col-6">
-            <img
-              src={props.data.icon}
-              alt="{props.data.condition}"
-              size={50}
-            />
+            <img src={props.data.icon} alt="{props.data.condition}" size={50} />
             <WeatherTemperature farenheit={props.data.temperature} />
-            </div>
+          </div>
           <div className="col-6">
             <ul>
-              <li className="text-capitalize">Condition: {props.data.condition}</li>
               <li>Humidity: {props.data.humidity}%</li>
               <li>Wind: {props.data.wind} mph</li>
             </ul>
           </div>
         </div>
-        </div>
-    )
+      </div>
+    );
 }
