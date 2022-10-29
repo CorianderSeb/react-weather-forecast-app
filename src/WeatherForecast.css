@@ -9,6 +9,9 @@
     height: 50px;
     float: none;
 }
+.WeatherForecast .WeatherForecast-day{
+    font-weight: bold;
+}
 .WeatherForecast .WeatherForecast-temp {
     margin-top: 22 px;
 }
