@@ -48,7 +48,7 @@
 
 @media only screen and (max-width: 600px) {
  .Weather{ 
-  margin-left: 5px;
-  padding-left: 0;  
+  margin:5px;
+  padding: 0;  
 }
 }

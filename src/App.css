@@ -14,6 +14,7 @@
 @media only screen and (max-width: 600px) {
  .App{ 
   margin: 5px;
-  padding: 0;  
+  padding: 5px;  
+  text-align: center;
 }
 }
