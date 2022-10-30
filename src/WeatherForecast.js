@@ -28,7 +28,9 @@ return (
                 <WeatherForecastDay data={dailyforecast} />
             </div>
         ); 
-            }   
+            } else{
+                return null
+            }  
         })}
   </div>
   </div>
