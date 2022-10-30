@@ -1,0 +1,11 @@
+.WeatherInfo .condition {
+    margin-bottom: 10px;
+}
+.WeatherInfo .humidity-temperature{
+    line-height: 32px;
+    text-align: middle;
+}
+.WeatherInfo .unit {
+    margin-left: 5px;
+    line-height: 10px;
+}
