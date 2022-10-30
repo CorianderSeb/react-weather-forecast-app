@@ -45,3 +45,10 @@
   font-size: 16px;
   position: relative;
 }
+
+@media only screen and (max-width: 600px) {
+ .Weather{ 
+  margin-left: 5px;
+  padding-left: 0;  
+}
+}
